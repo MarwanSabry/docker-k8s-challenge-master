@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    container_name: redis-container
+
+  go-app:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      APP_PORT: "80"
+    depends_on:
+      - redis
