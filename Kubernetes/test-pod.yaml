@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-app-test-pod
+  namespace: app
+spec:
+  containers:
+  - name: test-container
+    image: alpine/curl
+    command: ["/bin/sh", "-c", "sleep infinity"]
